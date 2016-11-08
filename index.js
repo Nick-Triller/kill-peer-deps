@@ -21,11 +21,11 @@ function recursiveFileSearch(directoryPath, filename, handler) {
         files.forEach(file => {
             var currentPath = path.join(directoryPath, file);
             var stat = fs.stat(currentPath, function (err, stat) {
-                if (file === filename) {
-                    handler(currentPath);
-                }
                 if (stat.isDirectory()) {
                     recursiveFileSearch(currentPath, filename, handler);
+                }
+                else if (file === filename) {
+                    handler(currentPath);
                 }
             });
         });
