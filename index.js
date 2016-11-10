@@ -7,6 +7,9 @@ if (process.argv.length !== 3) {
     return;
 }
 var directory = process.argv[2];
+if (!path.isAbsolute(directory)) {
+    directory = path.join(path.dirname(process.argv[1]), directory);
+}
 
 recursiveFileSearch(directory, "package.json", function(packageJsonPath) {
     var json = require(packageJsonPath);
