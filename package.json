@@ -1,6 +1,6 @@
 {
   "name": "kill-peer-deps",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Removes peer dependencies from all package.json files in a directory",
   "main": "index.js",
   "scripts": {
