@@ -8,7 +8,8 @@ if (process.argv.length !== 3) {
 }
 var directory = process.argv[2];
 if (!path.isAbsolute(directory)) {
-    directory = path.join(path.dirname(process.argv[1]), directory);
+    var workingDir = process.cwd();
+    directory = path.join(workingDir, directory);
 }
 
 recursiveFileSearch(directory, "package.json", function(packageJsonPath) {
